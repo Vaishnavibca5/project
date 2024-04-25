@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        #container {
+          width: 400px;
+          height: 400px;
+          position: relative;
+          background: yellow;
+        }
+        #animate {
+          width: 50px;
+          height: 50px;
+          position: absolute;
+          background: red;
+        }
+        .defaultbtn{
+            background-color: white;
+            color: black;
+        }
+        .blackbutton{
+            background-color: black;
+            color: white;
+        }
+        #vaish{
+          height: 50px;
+          width: 50px;
+          position: absolute;
+        }
+        </style>
+        <body>
+        
+        <h2>My First JavaScript Animation</h2>
+        <p><button  id="my button" class="defaultbtn" onclick="myMove()">Click Me</button></p> 
+        <div id="container">
+        <div id="animate">
+          <img src="V5.jpg" alt="image" id="vaish">
+        </div>
+        </div>
+        
+        <script>
+            document.getElementById("my button").addEventListener("click",function(){
+                this.classList.toggle("blackbutton");
+            })
+            function myMove(){
+              let id = null;
+              const elem = document.getElementById("animate");   
+              let pos = 0;
+              clearInterval(id);
+              id = setInterval(frame, 5);
+              function frame() {
+                if (pos == 350) {
+                  clearInterval(id);
+                } else {
+                  pos++; 
+                  elem.style.top = pos + "px"; 
+                  elem.style.left = pos + "px"; 
+                }
+              }
+            }
+            $(function(){
+                var x=0;
+                var y=0;
+                setInterval(function(){
+                    x+=1;
+                    y-=1;
+                    $('body').css('background-position',x+'px'+y+'px');
+                },10)
+            }) 
+            document.getElementById("my button").addEventListener("click",function(){
+                this.style.backgroundColor="pink";
+                this.style.color="white";})
+          
+            </script>
+</body>
+</html>
